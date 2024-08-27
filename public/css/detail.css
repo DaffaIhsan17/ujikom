@@ -1,0 +1,334 @@
+/* Typography and Font Settings */
+.navbar, .navbar-nav .nav-link {
+    font-family: 'Junge', serif;
+}
+
+/* Font Kanit untuk Trending Menu */
+.section-title {
+    font-family: 'Kanit', sans-serif;
+}
+
+/* Font Inknut Antiqua untuk Nama Menu */
+.card-text {
+    font-family: 'Inknut Antiqua', serif;
+}
+
+/* Font Inika untuk Harga */
+.card-title {
+    font-family: 'Inika', serif;
+}
+
+/* Global Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #E8EDF3;
+    color: #333;
+}
+
+/* Navbar with Gradient and Fixed Position */
+.navbar {
+    background: linear-gradient(90deg, #597AA7 0%, #7B98C1 50%, #232F41 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    padding: 0 15px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Navbar Brand (Logo and Text) */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-brand img {
+    max-height: 40px;
+    margin-right: 10px;
+}
+
+.navbar-brand span {
+    font-size: 1.2rem;
+    color: white;
+}
+
+/* Right Section for Profile and Dropdown Icons */
+.nav-right {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1040;
+}
+
+.nav-right .dropdown-toggle {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+/* Adjust icon size */
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+/* Dropdown Position Fix */
+.dropdown-menu {
+    position: absolute;
+    left: auto;
+    right: 0;
+    top: 60px;
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+    color: white !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ddd !important;
+}
+
+/* Content Container Margin Adjustment */
+.content-container {
+    margin-top: 100px;
+}
+
+/* Section Title Styling */
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: left;
+    margin: 30px 0;
+}
+
+/* Card Layout with Flexbox */
+.card {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    max-width: 150px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card-text {
+    margin-bottom: 20px;
+}
+
+.card a {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: none;
+    text-decoration: none;
+    width: 120px;
+    height: 45px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.card a:hover {
+    background-color: #555;
+}
+
+/* Grid Layout for Products */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .navbar {
+        padding: 0 10px;
+        height: 50px;
+    }
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+    
+    /* Positioning the Profile Icon Next to the Hamburger Menu */
+    /* Right Section for Profile and Dropdown Icons */
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown Toggle (Profile Button) */
+.nav-right .dropdown-toggle {
+    margin-left: 10px; /* Space between hamburger menu and profile */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+/* Adjust icon size */
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Positioning Dropdown Under Profile Icon */
+.dropdown-menu {
+    position: absolute;
+    top: 60px; /* Adjust this value to ensure the dropdown is placed right below the button */
+    right: 10px; /* Align the dropdown to the right edge of the screen */
+    margin-top: 5px;
+    border-radius: 5px; /* Rounded corners for a cleaner look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for visibility */
+    min-width: 150px; /* Set a minimum width for consistency */
+}
+
+/* Dropdown Item Styling */
+.dropdown-menu .dropdown-item {
+    padding: 10px 15px;
+    color: #333;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Navbar Links Positioned to the Left */
+.navbar-collapse {
+    background: linear-gradient(90deg, #597AA7 0%, #7B98C1 50%, #232F41 100%);
+    position: absolute;
+    top: 50px; /* Position below the navbar */
+    left: 0;
+    width: 100%;
+    z-index: 1029;
+    text-align: left; /* Ensure text aligns to the left */
+    padding-left: 20px; /* Add padding to move the links slightly from the edge */
+}
+
+/* Navbar Brand and Navigation Links */
+.navbar-nav {
+    flex-direction: column;
+    align-items: flex-start; /* Align the links to the left */
+}
+
+/* Ensure consistent styling for navbar links */
+.navbar-nav .nav-link {
+    color: white !important;
+    padding: 10px 0;
+    width: 100%; /* Make links full width for better clickable area */
+}
+
+    .dropdown-menu {
+        top: 50px;
+    }
+
+    .carousel-item {
+        display: flex;
+        justify-content: center;
+    }
+
+    .card img {
+        max-width: 100px;
+    }
+}
+
+/* Product Detail Page Specific Styles */
+.product-title {
+    font-family: 'Kanit', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-price {
+    font-family: 'Inika', serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.text-muted {
+    font-family: 'Junge', serif;
+    font-size: 1rem;
+}
+
+/* Center alignment for the image and text */
+.img-fluid {
+    border: 4px solid #ddd;
+}
+
+.btn-dark {
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .product-title {
+    font-size: 2rem;
+  }
+  
+  .product-price {
+    font-size: 1.5rem;
+  }
+  
+  .img-fluid {
+    width: 250px;
+    height: 250px;
+  }
+}
+

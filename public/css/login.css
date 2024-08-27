@@ -1,0 +1,75 @@
+body {
+    background-color: #e0e7f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Inknut Antiqua', serif;
+  }
+  
+  .login-container {
+    /* Applying gradient background */
+    background: linear-gradient(180deg, #92b5e7 0%, #678dc3 0%, #4f678a 59%, #3a485b 100%);
+    border-radius: 20px;
+    padding: 40px;
+    width: 400px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .login-container h2 {
+    margin-bottom: 30px;
+    font-weight: normal; /* Changed from bold to normal */
+  }
+  
+  .form-control {
+    background-color: #ffffff;
+    border-radius: 50px;
+    border: none;
+    margin-bottom: 20px;
+  }
+  
+  .btn-primary {
+    background-color: #333;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    width: 100%;
+  }
+  
+  .btn-primary:hover {
+    background-color: #444;
+  }
+  
+  .form-text {
+    color: #b0c7e1;
+    text-decoration: none;
+  }
+  
+  .form-text:hover {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .login-container a {
+    color: #b0c7e1;
+    text-decoration: none;
+  }
+  
+  .login-container a:hover {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .login-container img {
+    width: auto;
+    height: auto;
+    max-width: 100px; /* Limit the max width */
+    max-height: 100px; /* Limit the max height */
+    object-fit: contain; /* Ensures the image fits within the defined box without being cropped */
+    margin-bottom: 20px;
+    margin-top: -5.5em;
+    
+  }
+  

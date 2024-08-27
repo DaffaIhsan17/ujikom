@@ -1,0 +1,281 @@
+/* Typography and Font Settings */
+.navbar, .navbar-nav .nav-link {
+    font-family: 'Junge', serif;
+}
+
+.btn {
+    font-family: 'Inknut Antiqua', serif;
+    /* font-size: 0.9rem; */
+}
+
+/* Font Inknut Antiqua for Menu Names */
+.menu-name {
+    font-family: 'Inknut Antiqua', serif;
+    /* font-size: 1.3rem; */
+}
+
+.section-title {
+    font-family: 'Kanit', sans-serif;
+}
+
+/* Font Inika for Prices, Spiciness Level, Summary, and Titles */
+.price, .spiciness, .cart-summary h5{
+    font-family: 'Kanit', sans-serif;
+    /* font-size: 1.1rem; */
+}
+
+/* Global Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #E8EDF3;
+    color: #333;
+}
+
+/* Navbar with Gradient and Fixed Position */
+.navbar {
+    background: linear-gradient(90deg, #597AA7 0%, #7B98C1 50%, #232F41 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    padding: 0 15px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-brand img {
+    max-height: 40px;
+    margin-right: 10px;
+}
+
+.navbar-brand span {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ddd !important;
+}
+
+
+
+/* Cart Page Styling */
+
+.cart-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    padding: 20px;
+    
+}
+
+/* Keranjang Anda Section */
+.cart-card {
+    width: 40%;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+/* Cart Item */
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    width: 80px;
+    margin-right: 15px;
+}
+
+.cart-item .item-info {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.cart-item h5 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.cart-item p {
+    margin: 0;
+}
+
+/* Delete Button */
+.btn-delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icon {
+    height: 25px;
+    width: 25px;
+}
+
+/* Delete Icon */
+.delete-icon {
+    width: 20px; /* Change width to 20px */
+    height: 20px; /* Change height to 20px */
+    object-fit: contain;
+}
+
+/* Pilih Semua Container */
+.select-all-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkbox-input {
+    margin-right: 10px;
+}
+/* Cart Page Styling */
+.cart-container {
+    margin-top: 100px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Pastikan card Ringkasan Belanja sejajar dengan menu pertama */
+}
+
+/* Cart Summary */
+.cart-summary {
+    width: 266px;
+    background-color: rgba(255, 255, 255, 0.5); /* Warna dengan opacity */
+    border-radius: 25px; /* Sudut membulat sesuai spesifikasi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    margin-left: 20px;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-start; /* Pastikan card Ringkasan Belanja sejajar dengan item pertama */
+}
+
+.cart-summary h5 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.cart-summary .total-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.cart-summary button {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-summary button:hover {
+    background-color: #555;
+}
+
+/* Keranjang Anda Section */
+.cart-card {
+    width: 40%;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+/* Cart Items Section */
+.cart-items-card {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 300px); /* Mengambil ruang yang tersisa dari Ringkasan Belanja */
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan shadow */
+}
+
+.cart-item img {
+    width: 80px;
+    margin-right: 20px;
+}
+
+.item-info {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.menu-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.price,
+.spiciness {
+    font-size: 0.9rem;
+}
+
+.btn-delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.select-all-container {
+    margin-bottom: 20px;
+}
+
+/* Pilih Semua Checkbox */
+#select-all {
+    margin-right: 10px;
+}
+
+/* Responsive Adjustments for Smaller Devices */
+@media (max-width: 768px) {
+    .cart-container {
+        flex-direction: column;
+    }
+
+    .cart-summary {
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+    }
+
+    .cart-items-card {
+        width: 100%;
+    }
+}

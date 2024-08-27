@@ -1,0 +1,258 @@
+/* Typography and Font Settings */
+.navbar, .navbar-nav .nav-link {
+    font-family: 'Junge', serif;
+}
+
+/* Font Kanit untuk Trending Menu */
+.section-title {
+    font-family: 'Kanit', sans-serif;
+}
+
+/* Font Inknut Antiqua untuk Nama Menu */
+.card-text {
+    font-family: 'Inknut Antiqua', serif;
+}
+
+/* Font Inika untuk Harga */
+.card-title {
+    font-family: 'Inika', serif;
+}
+
+/* Global Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #E8EDF3;
+    color: #333;
+}
+
+/* Navbar with Gradient and Fixed Position */
+.navbar {
+    background: linear-gradient(90deg, #597AA7 0%, #7B98C1 50%, #232F41 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    padding: 0 15px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Navbar Brand (Logo and Text) */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-brand img {
+    max-height: 40px;
+    margin-right: 10px;
+}
+
+.navbar-brand span {
+    font-size: 1.2rem;
+    color: white;
+}
+
+/* Right Section for Profile and Dropdown Icons */
+.nav-right {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1040;
+}
+
+.nav-right .dropdown-toggle {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+/* Adjust icon size */
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+/* Dropdown Position Fix */
+.dropdown-menu {
+    position: absolute;
+    left: auto;
+    right: 0;
+    top: 60px;
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+    color: white !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ddd !important;
+}
+
+/* Content Container Margin Adjustment */
+.content-container {
+    margin-top: 100px;
+}
+
+/* Section Title Styling */
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: left;
+    margin: 30px 0;
+}
+
+/* Card Layout with Flexbox */
+.card {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    max-width: 150px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card-text {
+    margin-bottom: 20px;
+}
+
+.card a {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: none;
+    text-decoration: none;
+    width: 120px;
+    height: 45px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.card a:hover {
+    background-color: #555;
+}
+
+/* Grid Layout for Products (Desktop) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+/* Responsive Adjustments for Android and Smaller Devices */
+@media (max-width: 768px) {
+    /* Product Grid Becomes Horizontal Scrollable */
+    .product-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 20px;
+        padding-bottom: 20px;
+        -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on mobile */
+        scroll-snap-type: x mandatory; /* Enables snapping to each card */
+        padding-left: 15px; /* Adds padding to prevent clipping at the edges */
+    }
+
+    .product-grid::-webkit-scrollbar {
+        display: none; /* Hides scrollbar for better appearance */
+    }
+
+    .card {
+        flex: 0 0 auto; /* Prevents flex items from shrinking */
+        width: 80%; /* Adjust width to take up more space on smaller screens */
+        max-width: 250px; /* Maximum width to ensure consistency */
+        scroll-snap-align: start; /* Ensure each card snaps to the start of the scroll */
+        box-sizing: border-box; /* Ensures padding and borders are included in width */
+    }
+
+    /* Making Cards More Compact */
+    .card img {
+        width: 100%; /* Make sure the image fits fully in the card */
+        height: auto;
+        max-width: 120px; /* Limits the maximum width of the image */
+    }
+
+    /* Adjust Font Sizes for Smaller Screens */
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+
+    /* Adjust Button Sizing */
+    .card a {
+        width: 100px;
+        height: 40px;
+    }
+
+    /* Navbar collapse background fix */
+    .navbar-collapse {
+        background: linear-gradient(90deg, #597AA7 0%, #7B98C1 50%, #232F41 100%);
+        position: absolute;
+        top: 50px; /* Position below the navbar */
+        left: 0;
+        width: 100%;
+        z-index: 1029;
+        text-align: left; /* Ensure text aligns to the left */
+        padding-left: 20px; /* Add padding to move the links slightly from the edge */
+    }
+}
+
+/* New Class for Smoother Scroll */
+.slideable {
+    scroll-behavior: smooth;
+}
