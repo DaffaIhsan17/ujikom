@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produks;
+use App\Models\Keranjang;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -39,13 +40,39 @@ class ProductController extends Controller
     // Cart (Keranjang) method
     public function keranjang()
     {
-        $cartItems = [
-            (object)[ 'id' => 6, 'nama' => 'Seblak Mang Ajril', 'harga' => 10000, 'foto' => 'img1.png', 'spiciness' => 1 ],
-            (object)[ 'id' => 7, 'nama' => 'Nasi Goreng', 'harga' => 10000, 'foto' => 'img2.png', 'spiciness' => 1 ],
-            (object)[ 'id' => 8, 'nama' => 'Katsu', 'harga' => 10000, 'foto' => 'img3.png', 'spiciness' => 1 ],
-        ];
+        $cartItems = Keranjang::all();
 
         return view('kantin.keranjang', compact('cartItems'));
+    }
+
+    public function addToKeranjang(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required|string',
+            'harga' => 'required|integer',
+            'foto' => 'required|string',
+            'jumlah' => 'required|integer|min:1',
+            'level' => 'required|string',
+        ]);
+
+        Keranjang::create([
+            'nama' => $request->nama,
+            'harga' => $request->harga,
+            'foto' => $request->foto,
+            'jumlah' => $request->jumlah,
+            'level' => $request->level,
+        ]);
+
+        return redirect()->route('keranjang')->with('success', 'Item ditambahkan ke keranjang.');
+    }
+
+    public function updateQuantity(Request $request, $id)
+    {
+        $item = Keranjang::findOrFail($id);
+        $item->jumlah = $request->input('jumlah');
+        $item->save();
+
+        return response()->json(['success' => 'Jumlah item berhasil diupdate']);
     }
 
     // Product detail page

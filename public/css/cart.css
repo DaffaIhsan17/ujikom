@@ -263,6 +263,58 @@ body, html {
     margin-right: 10px;
 }
 
+/* Jumlah item di keranjang */
+.item-actions {
+    display: flex;
+    align-items: center;
+}
+
+.item-actions .btn-delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d1d8e4;
+    border-radius: 12px;
+    padding: 5px 10px;
+    width: 120px;
+}
+
+.quantity-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 0 10px;
+    outline: none;
+}
+
+.quantity-btn:hover {
+    color: #28a745;
+}
+
+.quantity-input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    font-size: 1rem;
+    background-color: transparent;
+    outline: none;
+    pointer-events: none;
+}
+
+.item-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
 /* Responsive Adjustments for Smaller Devices */
 @media (max-width: 768px) {
     .cart-container {

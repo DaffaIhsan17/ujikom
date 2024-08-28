@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PesananController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\AuthController; // Import your custom AuthController
 
 /*
@@ -33,6 +35,11 @@ Route::middleware(['auth.siswa'])->group(function () { // Ensure the correct gua
     Route::get('/kantin1', [ProductController::class, 'kantin1'])->name('kantin1');
     Route::get('/kantin2', [ProductController::class, 'kantin2'])->name('kantin2');
     Route::get('/keranjang', [ProductController::class, 'keranjang'])->name('keranjang');
+    Route::post('/keranjang/add', [ProductController::class, 'addToKeranjang'])->name('keranjang.add');
+    Route::delete('/keranjang/{id}', [KeranjangController::class, 'destroy'])->name('keranjang.destroy');
+    Route::patch('/keranjang/update/{id}', [ProductController::class, 'updateQuantity'])->name('keranjang.update');
+
+    Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan.index');
     Route::get('/product/{id}', [ProductController::class, 'detail'])->name('product.detail');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/home', [HomeController::class, 'index'])->name('home');

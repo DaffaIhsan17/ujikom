@@ -21,19 +21,27 @@
   
       <!-- Cart Items -->
       @foreach ($cartItems as $item)
-      <div class="cart-item">
-        <input type="checkbox" class="menu-checkbox" data-price="{{ $item->harga }}" style="margin-right: 15px;">
-        <img src="{{ asset('img/' . $item->foto) }}" alt="{{ $item->nama }}">
-        <div class="item-info">
-          <h5 class="menu-name">{{ $item->nama }}</h5>
-          <p class="price">Rp. {{ number_format($item->harga, 0, ',', '.') }}</p>
-          <p class="spiciness">Pedas : Level {{ $item->spiciness }}</p>
+<div class="cart-item" data-id="{{ $item->id }}">
+    <input type="checkbox" class="menu-checkbox" data-price="{{ $item->harga }}" style="margin-right: 15px;">
+    <img src="{{ asset('img/' . $item->foto) }}" alt="{{ $item->nama }}">
+    <div class="item-info">
+        <h5 class="menu-name">{{ $item->nama }}</h5>
+        <p class="price">Rp. {{ number_format($item->harga, 0, ',', '.') }}</p>
+        <p class="spiciness">{{ $item->level }}</p>
+    </div>
+    <div class="item-actions">
+        <div class="quantity-container">
+            <button type="button" class="quantity-btn minus">-</button>
+            <input type="text" class="quantity-input" value="{{ $item->jumlah }}" readonly>
+            <button type="button" class="quantity-btn plus">+</button>
         </div>
         <button class="btn btn-delete">
-          <img src="{{ asset('img/delete-icon.png') }}" alt="Hapus" class="delete-icon">
+            <img src="{{ asset('img/delete-icon.png') }}" alt="Hapus" class="delete-icon">
         </button>
-      </div>
-      @endforeach
+    </div>
+</div>
+@endforeach
+
     </div>
   
     <!-- Cart Summary Section -->
@@ -47,7 +55,7 @@
 
 @push('scripts')
   <script>
-    // JavaScript to Calculate Total Price
+    // JavaScript total harga
     const checkboxes = document.querySelectorAll('.menu-checkbox');
     const totalPriceElement = document.getElementById('total-price');
     const selectAllCheckbox = document.getElementById('select-all');
@@ -57,23 +65,79 @@
       let total = 0;
       checkboxes.forEach(item => {
         if (item.checked) {
-          total += parseInt(item.getAttribute('data-price'));
+          const itemRow = item.closest('.cart-item');
+          const quantityInput = itemRow.querySelector('.quantity-input');
+          const itemPrice = parseInt(item.getAttribute('data-price'));
+          const quantity = parseInt(quantityInput.value);
+          total += itemPrice * quantity;
         }
       });
-      totalPriceElement.textContent = total.toLocaleString(); // Formats the number
+      totalPriceElement.textContent = total.toLocaleString(); 
     }
 
-    // Add event listeners for individual checkboxes
     checkboxes.forEach(checkbox => {
       checkbox.addEventListener('change', calculateTotalPrice);
     });
 
-    // JavaScript to handle 'Pilih Semua' checkbox functionality
     selectAllCheckbox.addEventListener('change', function() {
       itemCheckboxes.forEach(checkbox => {
         checkbox.checked = selectAllCheckbox.checked;
       });
-      calculateTotalPrice(); // Calculate total price after selecting or deselecting all
+      calculateTotalPrice();
     });
-  </script>
+
+    document.addEventListener('DOMContentLoaded', function (){
+   const minusButtons = document.querySelectorAll('.quantity-btn.minus');
+   const plusButtons = document.querySelectorAll('.quantity-btn.plus');
+
+   minusButtons.forEach(btn => {
+     btn.addEventListener('click', function () {
+       const input = this.nextElementSibling;
+       const itemRow = this.closest('.cart-item');
+       const itemId = itemRow.getAttribute('data-id');
+       let value = parseInt(input.value);
+       if (value > 1) {
+         value = value - 1;
+         input.value = value;
+         updateQuantity(itemId, value);
+       }
+     });
+   });
+
+   plusButtons.forEach(btn => {
+     btn.addEventListener('click', function () {
+       const input = this.previousElementSibling;
+       const itemRow = this.closest('.cart-item');
+       const itemId = itemRow.getAttribute('data-id');
+       let value = parseInt(input.value);
+       value = value + 1;
+       input.value = value;
+       updateQuantity(itemId, value);
+     });
+   });
+
+   function updateQuantity(itemId, newQuantity) {
+     fetch(`/keranjang/update/${itemId}`, {
+       method: 'PATCH',
+       headers: {
+         'Content-Type': 'application/json',
+         'X-CSRF-TOKEN': '{{ csrf_token() }}'
+       },
+       body: JSON.stringify({jumlah: newQuantity})
+     })
+     .then(response => response.json())
+     .then(data => {
+       if (data.success) {
+         calculateTotalPrice(); // Update total harga
+       } else {
+         alert('Gagal update item.');
+       }
+     })
+     .catch(error => {
+       console.error('Error:', error);
+     });
+   }
+ });
+
+</script>
 @endpush
