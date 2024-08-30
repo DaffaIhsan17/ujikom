@@ -36,10 +36,12 @@ Route::middleware(['auth.siswa'])->group(function () { // Ensure the correct gua
     Route::get('/kantin2', [ProductController::class, 'kantin2'])->name('kantin2');
     Route::get('/keranjang', [ProductController::class, 'keranjang'])->name('keranjang');
     Route::post('/keranjang/add', [ProductController::class, 'addToKeranjang'])->name('keranjang.add');
-    Route::delete('/keranjang/{id}', [KeranjangController::class, 'destroy'])->name('keranjang.destroy');
+    Route::delete('/keranjang/delete/{id}', [KeranjangController::class, 'destroy'])->name('keranjang.destroy');
     Route::patch('/keranjang/update/{id}', [ProductController::class, 'updateQuantity'])->name('keranjang.update');
-
-    Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan.index');
+    Route::post('/keranjang/checkout', [KeranjangController::class, 'checkout'])->name('keranjang.checkout');
+    Route::get('/pesanan/sedang-diproses', [PesananController::class, 'sedangDiproses'])->name('pesanan.sedangDiproses');
+    Route::get('/pesanan/gagal', [PesananController::class, 'gagal'])->name('pesanan.gagal');
+    Route::get('/pesanan/selesai', [PesananController::class, 'selesai'])->name('pesanan.selesai');
     Route::get('/product/{id}', [ProductController::class, 'detail'])->name('product.detail');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/home', [HomeController::class, 'index'])->name('home');

@@ -13,7 +13,7 @@
     <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
       <div class="col-md-6 text-center">
         <!-- Use the product's image -->
-        <img src="{{ asset('img/' . $product->foto) }}" alt="{{ $product->nama }}" class="img-fluid rounded-circle product-image" style="width: 300px; height: 300px;">
+        <img src="{{ asset('storage/' . $product->foto) }}" alt="{{ $product->nama }}" class="img-fluid rounded-circle product-image" style="width: 300px; height: 300px;">
       </div>
       <div class="col-md-6 text-center text-md-start">
         <!-- Display the product's name and price dynamically -->
@@ -27,8 +27,10 @@
           <input type="hidden" name="nama" value="{{ $product->nama }}">
           <input type="hidden" name="harga" value="{{ $product->harga }}">
           <input type="hidden" name="foto" value="{{ $product->foto }}">
+          <input type="hidden" name="kantin_id" value="{{ $product->kantin_id }}">
 
           <!-- Spicy Level Selection -->
+          @if($product->jenis !== 'Minuman')
           <div class="mt-3">
             <label for="spiceLevel" class="form-label">Pedas</label>
             <select id="spiceLevel" class="form-select" name="level" style="width: 150px; display: inline-block;">
@@ -38,6 +40,10 @@
               <option value="Level 3">Level 3</option>
             </select>
           </div>
+          @else
+          <!-- Jika produk adalah minuman, tambahkan nilai default 'Original' -->
+          <input type="hidden" name="level" value="Original">
+          @endif
 
           <!-- Quantity Selection -->
           <div class="mt-3">

@@ -12,8 +12,8 @@ class ProductController extends Controller
     public function dashboard()
     {
         // Mocking trending and selected menu items
-        $trendingMenu = Produks::all();
-        $selectedMenu = Produks::all();
+        $trendingMenu = Produks::where('trending', true)->take(5)->get();
+        $selectedMenu = Produks::where('trending', false)->get();
 
         return view('kantin.dashboard', compact('trendingMenu', 'selectedMenu'));
     }
@@ -54,6 +54,7 @@ class ProductController extends Controller
             'jumlah' => 'required|integer|min:1',
             'level' => 'required|string',
         ]);
+        $pemesan = auth('siswa')->user()->nama;
 
         Keranjang::create([
             'nama' => $request->nama,
@@ -61,6 +62,8 @@ class ProductController extends Controller
             'foto' => $request->foto,
             'jumlah' => $request->jumlah,
             'level' => $request->level,
+            'kantin_id' => $request->kantin_id,
+            'pemesan' => $pemesan,
         ]);
 
         return redirect()->route('keranjang')->with('success', 'Item ditambahkan ke keranjang.');

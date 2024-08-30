@@ -13,10 +13,10 @@
           <a class="nav-link active" href="{{ route('dashboard') }}">Beranda</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('kantin1') }}">Kantin Aquarium</a>
+          <a class="nav-link" href="{{ route('keranjang') }}">Keranjang</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('kantin2') }}">Kantin Belakang</a>
+          <a class="nav-link" href="{{ route('pesanan.sedangDiproses') }}">Pesanan</a>
         </li>
       </ul>
       <div class="dropdown">
@@ -24,7 +24,6 @@
           <img src="{{ asset('img/profile.png') }}" class="icon" alt="Profil">
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-          <li><a class="dropdown-item" href="{{ route('keranjang') }}">Keranjang</a></li>
           <li>
             <a href="#" onclick="handleLogout(event)" class="dropdown-item text-danger">Logout</a>
           </li>

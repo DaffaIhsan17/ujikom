@@ -145,6 +145,46 @@ body, html {
     color: #28a745; /* Warna hijau */
 }
 
+.pesanan-section {
+    margin-bottom: 30px;
+}
+
+.sub-section-title {
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.status.sedang-diproses {
+    background-color: #ffc107;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.status.selesai {
+    background-color: #28a745;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* .btn-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+} */
+
+.btn-group .btn {
+    font-family: 'Kanit', sans-serif;
+    margin: 0 5px;
+}
+
+
+
+
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .pesanan-item {

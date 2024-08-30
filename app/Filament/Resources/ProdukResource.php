@@ -1,19 +1,19 @@
 <?php
-
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ProdukResource\Pages;
-use App\Models\Produk;
 use Filament\Forms;
 use Filament\Tables;
+use App\Models\Produk;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Card;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\ProdukResource\Pages;
 
 class ProdukResource extends Resource
 {
@@ -28,7 +28,7 @@ class ProdukResource extends Resource
                 TextInput::make('nama')
                     ->label('Nama Produk')
                     ->required(),
-                    Select::make('jenis')
+                Select::make('jenis')
                     ->label('Kategori')
                     ->options([
                         'Makanan' => 'Makanan',
@@ -44,62 +44,50 @@ class ProdukResource extends Resource
                     ->disk('public')
                     ->directory('produk')
                     ->required()
+                    ->preserveFilenames()
                     ->label('Foto Produk'),
-                    TextInput::make('kantin_nama')
-                    ->label('Nama Kantin')
-                    ->default(function () {
-                        return auth()->user()->kantin->nama;
-                    })
-                    ->disabled()
-                    ->required(),
-
-                            ]),
+                    Hidden::make('kantin_id')
+                ->default(auth()->user()->kantin_id) // Mengatur nilai default sesuai auth user
+                ->required(),
+            ]),
         ]);
-    }   
+    }
 
     public static function table(Tables\Table $table): Tables\Table
-    {
-        return $table
-            ->columns([
-                TextColumn::make('nama')
-                    ->label('Nama Produk'),
-                TextColumn::make('jenis')
-                    ->label('Jenis'),
-                TextColumn::make('harga')
-                    ->label('Harga'),
-                ImageColumn::make('foto')
-                    ->label('Gambar'),
-                TextColumn::make('kantins.nama')
-                    ->label('Kantin')
-                    ->sortable()
-                    ->searchable(),
-                    ])
-                    ->modifyQueryUsing(function (Builder $query) {
-                        if (auth()->user()->role === 'kantin') {
-                            return $query->whereHas('kantins', function ($query) {
-                                $query->where('kantins.id', auth()->user()->kantin_id);
-                            });
-                        }
-                        return $query;
-                    })
-                    
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
-    }
+{
+    return $table
+        ->columns([
+            TextColumn::make('nama')->label('Nama Produk'),
+            TextColumn::make('jenis')->label('Jenis'),
+            TextColumn::make('harga')->label('Harga'),
+            ImageColumn::make('foto')->label('Gambar'),
+            TextColumn::make('kantin.nama')->label('Kantin')->sortable()->searchable(),
+        ])
+        ->modifyQueryUsing(function (Builder $query) {
+            if (auth()->user()->role === 'kantin') {
+                $query->where('kantin_id', auth()->user()->kantin_id);
+            }
+            return $query;
+        })
+        ->filters([
+            // Filter opsional
+        ])
+        ->actions([
+            Tables\Actions\EditAction::make(),
+            Tables\Actions\DeleteAction::make(),
+        ])
+        ->bulkActions([
+            Tables\Actions\DeleteBulkAction::make(),
+        ]);
+}
+
+
+
 
     public static function getRelations(): array
     {
         return [
-            //
+            // Relasi opsional
         ];
     }
 
