@@ -44,32 +44,6 @@ class SiswaResource extends Resource
                     ->label('NISN')
                     ->placeholder('NISN')
                     ->required(),
-                    Select::make('kelas')
-                    ->label('Kelas')
-                    ->placeholder('Kelas')
-                    ->options([
-                        'X' => 'X',
-                        'XI' => 'XI',
-                        'XII' => 'XII',
-                    ])
-                    ->required(),
-                Select::make('jurusan')
-                    ->label('Jurusan')
-                    ->placeholder('Jurusan')
-                    ->options([
-                        'PPL' => 'PPL',
-                        'TJK' => 'TJK',
-                        'DKV' => 'DKV',
-                        'TET' => 'TET',
-                        'MLG' => 'MLG',
-                        'MPL' => 'MPL',
-                        'TLM' => 'TLM',
-                        'TKF' => 'TKF',
-                        'PM' => 'PM',
-                        'AKL' => 'AKL',
-                    ])
-                    ->native(false)
-                    ->required(),
                     TextInput::make('password')
                     ->password()
                     ->revealable()
@@ -93,10 +67,6 @@ class SiswaResource extends Resource
                     ->label('Nama Siswa'),
                 Tables\Columns\TextColumn::make('nisn')
                     ->label('NISN'),
-                Tables\Columns\TextColumn::make('kelas')
-                    ->label('Kelas'),
-                Tables\Columns\TextColumn::make('jurusan')
-                    ->label('Jurusan'),
 
             ])
             ->filters([

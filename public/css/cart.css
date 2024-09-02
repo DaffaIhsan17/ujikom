@@ -331,4 +331,14 @@ body, html {
     .cart-items-card {
         width: 100%;
     }
+    .navbar-collapse {
+        background: linear-gradient(90deg, #597AA7 0%, #7B98C1 50%, #232F41 100%);
+        position: absolute;
+        top: 50px; /* Position below the navbar */
+        left: 0;
+        width: 100%;
+        z-index: 1029;
+        text-align: left; /* Ensure text aligns to the left */
+        padding-left: 20px; /* Add padding to move the links slightly from the edge */
+    }
 }
