@@ -32,11 +32,11 @@ Website Kantin Digital untuk sekolah
 - **Password**: password
 
 ### **Kantin 1**
-- **Email**: aqua1@gmail.com
+- **Email**: aqua@gmail.com
 - **Password**: password
 
 ### **Kantin 2**
-- **Email**: aqua2@gmail.com
+- **Email**: mangkoko@gmail.com
 - **Password**: password
 
 ### **Siswa**
