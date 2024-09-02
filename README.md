@@ -68,6 +68,9 @@ Akun Siswa dapat dibuat manual oleh siswa yang akan mendaftar di URL `/register`
 ### **Entity Relationship Diagram (ERD)**
 ![ERD Kantin Digital](./public/img/erd.png)
 
+### **UML Use Case Diagram**
+![ERD Kantin Digital](./uml.png)
+
 
 ## **Instalasi**
 1. **Clone Repo**
