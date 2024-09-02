@@ -32,11 +32,11 @@ Website Kantin Digital untuk sekolah
 - **Password**: password
 
 ### **Kantin 1**
-- **Email**: aqua1@gmail.com
+- **Email**: aqua@gmail.com
 - **Password**: password
 
 ### **Kantin 2**
-- **Email**: aqua2@gmail.com
+- **Email**: mangkoko@gmail.com
 - **Password**: password
 
 ### **Siswa**
@@ -46,6 +46,12 @@ Website Kantin Digital untuk sekolah
 **Admin** dan **Akun Kantin** login di URL `/admin/login` (Contoh: [http://127.0.0.1:8000/admin/login](http://127.0.0.1:8000/admin/login))
 
 **Akun Siswa** login di URL `/login` (Contoh: [http://127.0.0.1:8000/login](http://127.0.0.1:8000/login))
+
+Akun Kantin dapat dibuat manual oleh Admin di **Filament** pada tab **Kantins** dan **Users** melalui URL `/admin/login` -> **Email**: `admin@example.com` **Password**: `password`.
+
+Akun Siswa dapat dibuat manual oleh siswa yang akan mendaftar di URL `/register`.
+
+**Produk** dapat diisi manual oleh akun Kantin.
 
 ## **Teknologi yang Digunakan**
 - **[Laravel 10](https://laravel.com/)**
@@ -59,25 +65,37 @@ Website Kantin Digital untuk sekolah
 - **[Navicat Premium 16](https://www.navicat.com/en/products/navicat-premium)**
 - **Web Browser**
 
+### **Entity Relationship Diagram (ERD)**
+![ERD Kantin Digital](./public/img/erd.png)
+
+
 ## **Instalasi**
 1. **Clone Repo**
    ```bash
    git clone https://github.com/DaffaIhsan17/ujikom
+   composer install
+   cp .env.example .env
+   ```
+4. **Konfigurasi Database pada file `.env`
+   ```bash
+    DB_CONNECTION=pgsql
+    DB_HOST=127.0.0.1
+    DB_PORT=5432
+    DB_DATABASE=ujikom
+    DB_USERNAME=postgres
+    DB_PASSWORD=
    ```
 
-2. **Migrasi dan Menyambungkan Storage**
+3. **Migrasi dan Menyambungkan Storage**
    ```bash
+   php artisan key:generate
    php artisan storage:link
    php artisan migrate --seed
    ```
 
-3. **Mulai Website**
+4. **Mulai Website**
    ```bash
    php artisan serve
    ```
 
-Akun Kantin dan Akun Siswa dibuat manual oleh Admin di **Filament** pada tab **Kantins** dan **Users** melalui URL `/admin/login` -> **Email**: `admin@example.com` **Password**: `password`.
 
-Akun Siswa dibuat manual oleh siswa yang akan mendaftar di URL `/register`.
-
-**Produk** diisi manual oleh akun Kantin.
