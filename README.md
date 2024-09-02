@@ -47,6 +47,12 @@ Website Kantin Digital untuk sekolah
 
 **Akun Siswa** login di URL `/login` (Contoh: [http://127.0.0.1:8000/login](http://127.0.0.1:8000/login))
 
+Akun Kantin dapat dibuat manual oleh Admin di **Filament** pada tab **Kantins** dan **Users** melalui URL `/admin/login` -> **Email**: `admin@example.com` **Password**: `password`.
+
+Akun Siswa dapat dibuat manual oleh siswa yang akan mendaftar di URL `/register`.
+
+**Produk** dapat diisi manual oleh akun Kantin.
+
 ## **Teknologi yang Digunakan**
 - **[Laravel 10](https://laravel.com/)**
 - **[Laravel Filament](https://filamentphp.com/)**
@@ -76,8 +82,4 @@ Website Kantin Digital untuk sekolah
    php artisan serve
    ```
 
-Akun Kantin dan Akun Siswa dibuat manual oleh Admin di **Filament** pada tab **Kantins** dan **Users** melalui URL `/admin/login` -> **Email**: `admin@example.com` **Password**: `password`.
 
-Akun Siswa dibuat manual oleh siswa yang akan mendaftar di URL `/register`.
-
-**Produk** diisi manual oleh akun Kantin.
