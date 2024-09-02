@@ -65,6 +65,10 @@ Akun Siswa dapat dibuat manual oleh siswa yang akan mendaftar di URL `/register`
 - **[Navicat Premium 16](https://www.navicat.com/en/products/navicat-premium)**
 - **Web Browser**
 
+### **Entity Relationship Diagram (ERD)**
+![ERD Kantin Digital](./public/img/erd.png)
+
+
 ## **Instalasi**
 1. **Clone Repo**
    ```bash
