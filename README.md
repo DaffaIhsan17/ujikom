@@ -69,15 +69,27 @@ Akun Siswa dapat dibuat manual oleh siswa yang akan mendaftar di URL `/register`
 1. **Clone Repo**
    ```bash
    git clone https://github.com/DaffaIhsan17/ujikom
+   composer install
+   cp .env.example .env
+   ```
+4. **Konfigurasi Database pada file `.env`
+   ```bash
+    DB_CONNECTION=pgsql
+    DB_HOST=127.0.0.1
+    DB_PORT=5432
+    DB_DATABASE=ujikom
+    DB_USERNAME=postgres
+    DB_PASSWORD=
    ```
 
-2. **Migrasi dan Menyambungkan Storage**
+3. **Migrasi dan Menyambungkan Storage**
    ```bash
+   php artisan key:generate
    php artisan storage:link
    php artisan migrate --seed
    ```
 
-3. **Mulai Website**
+4. **Mulai Website**
    ```bash
    php artisan serve
    ```
