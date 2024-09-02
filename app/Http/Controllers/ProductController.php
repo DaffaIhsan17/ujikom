@@ -40,8 +40,8 @@ class ProductController extends Controller
     // Cart (Keranjang) method
     public function keranjang()
     {
-        $cartItems = Keranjang::all();
-
+        $pemesanId = auth('siswa')->user()->id;
+        $cartItems = Keranjang::where('pemesan_id', $pemesanId)->get();
         return view('kantin.keranjang', compact('cartItems'));
     }
 
@@ -54,7 +54,7 @@ class ProductController extends Controller
             'jumlah' => 'required|integer|min:1',
             'level' => 'required|string',
         ]);
-        $pemesan = auth('siswa')->user()->nama;
+        $pemesan = auth('siswa')->user()->id;
 
         Keranjang::create([
             'nama' => $request->nama,
@@ -63,7 +63,7 @@ class ProductController extends Controller
             'jumlah' => $request->jumlah,
             'level' => $request->level,
             'kantin_id' => $request->kantin_id,
-            'pemesan' => $pemesan,
+            'pemesan_id' => $pemesan,
         ]);
 
         return redirect()->route('keranjang')->with('success', 'Item ditambahkan ke keranjang.');

@@ -11,4 +11,9 @@ class Keranjang extends Model
     protected $table = 'keranjang';
 
     protected $guarded = ['id'];
+
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class, 'pemesan_id', 'id');
+    }
 }

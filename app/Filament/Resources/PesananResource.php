@@ -36,7 +36,9 @@ class PesananResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('nama'),
-                TextColumn::make('pemesan'),
+                TextColumn::make('siswa.nama')
+                ->label('Pemesan')
+                ->searchable(),
                 TextColumn::make('harga'),
                 ImageColumn::make('foto')
                 ->label('Foto')

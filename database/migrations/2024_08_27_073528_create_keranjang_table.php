@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('foto');
             $table->string('jumlah');
             $table->string('level');
+            $table->foreignId('pemesan_id')->constrained('siswas')->onDelete('cascade');
             $table->timestamps();
         });
     }

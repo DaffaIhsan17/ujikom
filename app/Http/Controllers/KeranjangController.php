@@ -27,7 +27,7 @@ class KeranjangController extends Controller
         DB::transaction(function () use ($selectedItems) {
             foreach ($selectedItems as $itemId) {
                 $keranjangItem = Keranjang::find($itemId);
-                $pemesan = auth('siswa')->user()->nama;
+                $pemesan = auth('siswa')->user()->id;
                 if ($keranjangItem) {
                     Pesanan::create([
                         'nama' => $keranjangItem->nama,
@@ -37,7 +37,7 @@ class KeranjangController extends Controller
                         'jumlah' => $keranjangItem->jumlah,
                         'status' => 'Sedang diproses',
                         'kantin_id' => $keranjangItem->kantin_id,
-                        'pemesan' => $pemesan
+                        'pemesan_id' => $pemesan
                     ]);
 
                     $keranjangItem->delete();

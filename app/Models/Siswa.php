@@ -15,4 +15,14 @@ class Siswa extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function keranjangs()
+    {
+        return $this->hasMany(Keranjang::class, 'pemesan_id', 'id');
+    }
+
+    public function pesanans()
+    {
+        return $this->hasMany(Pesanan::class, 'pemesan_id', 'id');
+    }
 }

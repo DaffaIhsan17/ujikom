@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('level');
             $table->integer('jumlah');
             $table->string('status');
+            $table->foreignId('pemesan_id')->constrained('siswas')->onDelete('cascade');
             $table->timestamps();
         });
     }
