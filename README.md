@@ -43,11 +43,11 @@ Website Kantin Digital untuk sekolah
 - **NISN**: 0077723063
 - **Password**: password
 
-**Admin** dan **Akun Kantin** login di URL `/admin/login` (Contoh: [http://127.0.0.1:8000/admin/login](http://127.0.0.1:8000/admin/login))
+**Admin** dan **Akun Kantin** login di URL `/panel/login` (Contoh: [http://127.0.0.1:8000/panel/login](http://127.0.0.1:8000/panel/login))
 
 **Akun Siswa** login di URL `/login` (Contoh: [http://127.0.0.1:8000/login](http://127.0.0.1:8000/login))
 
-Akun Kantin dapat dibuat manual oleh Admin di **Filament** pada tab **Kantins** dan **Users** melalui URL `/admin/login` -> **Email**: `admin@example.com` **Password**: `password`.
+Akun Kantin dapat dibuat manual oleh Admin di **Filament** pada tab **Kantins** dan **Users** melalui URL `/panel/login` -> **Email**: `admin@example.com` **Password**: `password`.
 
 Akun Siswa dapat dibuat manual oleh siswa yang akan mendaftar di URL `/register`.
 
