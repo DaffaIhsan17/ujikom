@@ -19,7 +19,8 @@
         <!-- Display the product's name and price dynamically -->
         <h1 class="product-title">{{ $product->nama }}</h1>
         <h2 class="product-price">Rp. {{ number_format($product->harga, 0, ',', '.') }}</h2>
-        <p class="text-muted">Kondisi: Fresh</p>
+        <p class="text-muted">Stok: {{ $product->stok }}</p>
+
         
         <!-- Form to submit the data -->
         <form action="{{ route('keranjang.add') }}" method="POST">

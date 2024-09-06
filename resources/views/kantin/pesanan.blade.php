@@ -13,9 +13,9 @@
 
     <!-- Tombol Navigasi -->
     <div class="btn-group mb-3">
-        <a href="{{ route('pesanan.sedangDiproses') }}" class="btn btn-primary">Pesanan Sedang Diproses</a>
-        <a href="{{ route('pesanan.selesai') }}" class="btn btn-success">Pesanan Selesai</a>
-        <a href="{{ route('pesanan.gagal') }}" class="btn btn-danger">Pesanan Gagal</a>
+        <a href="{{ route('pesanan.sedangDiproses') }}" class="btn btn-primary">Sedang Diproses</a>
+        <a href="{{ route('pesanan.selesai') }}" class="btn btn-success">Selesai</a>
+        <a href="{{ route('pesanan.gagal') }}" class="btn btn-danger">Gagal</a>
     </div>
 
     <!-- Pesanan List -->

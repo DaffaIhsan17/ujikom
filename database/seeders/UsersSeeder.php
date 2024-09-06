@@ -16,8 +16,9 @@ class UsersSeeder extends Seeder
     public function run(): void
     {
         $akun = [
-            ['id' => '3', 'name' => 'Aqua', 'email' => 'aqua@gmail.com', 'email_verified_at' => Carbon::now(), 'password' => Hash::make('password'), 'created_at' => Carbon::now(), 'updated_at' => Carbon::now(), 'kantin_id' => 1],
-            ['id' => '4', 'name' => 'Koko', 'email' => 'mangkoko@gmail.com', 'email_verified_at' => Carbon::now(), 'password' => Hash::make('password'), 'created_at' => Carbon::now(), 'updated_at' => Carbon::now(), 'kantin_id' => 2],
+            ['id' => '1', 'name' => 'Admin', 'email' => 'admin@example.com', 'email_verified_at' => Carbon::now(), 'password' => Hash::make('password'), 'role' => 'Admin', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now(), 'kantin_id' => null],
+            ['id' => '3', 'name' => 'Aqua', 'email' => 'aqua@gmail.com', 'email_verified_at' => Carbon::now(), 'password' => Hash::make('password'), 'role' => 'Kantin', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now(), 'kantin_id' => 1],
+            ['id' => '4', 'name' => 'Koko', 'email' => 'mangkoko@gmail.com', 'email_verified_at' => Carbon::now(), 'password' => Hash::make('password'), 'role' => 'Kantin', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now(), 'kantin_id' => 2],
         ];
         DB::table('users')->insert($akun);
     }

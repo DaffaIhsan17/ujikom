@@ -15,6 +15,7 @@ class RolesSeeder extends Seeder
     public function run(): void
     {
         $role = [
+            ['id' => 1, 'name' => 'Admin', 'guard_name' => 'web', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
             ['id' => 2, 'name' => 'Kantin', 'guard_name' => 'web', 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
         ];
         DB::table('roles')->insert($role);

@@ -293,6 +293,45 @@ body, html {
         text-align: left; /* Ensure text aligns to the left */
         padding-left: 20px; /* Add padding to move the links slightly from the edge */
     }
+
+    .owl-nav button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: transparent;
+        border: none;
+        font-size: 30px;
+        color: #333;
+        transition: color 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .owl-nav button.owl-prev {
+        left: -50px;
+    }
+    
+    .owl-nav button.owl-next {
+        right: 60px;
+    }
+    
+    .owl-nav button:hover {
+        color: #000;
+    }
+    
+    /* Optional: Add background and padding */
+    .owl-nav button:before {
+        background: rgba(255, 255, 255, 0.7);
+        padding: 10px;
+        border-radius: 50%;
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
 }
 
 /* New Class for Smoother Scroll */

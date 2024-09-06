@@ -22,7 +22,11 @@ class KantinResource extends Resource
 {
     protected static ?string $model = Kantin::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
+    public static function getNavigationLabel(): string
+    {
+        return "Kantin";
+    } 
 
     public static function form(Form $form): Form
     {
